@@ -1,0 +1,74 @@
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Calendarly</span>
+  <div class="buttons">
+    <button *ngIf="currentUser == null" (click)="openModal(signup)" class="confirm-button">SignUp</button>
+    <button *ngIf="currentUser == null" (click)="openModal(login)" class="confirm-button">Login</button>
+    <button *ngIf="currentUser !== null"  (click)="openModal(create)" class="confirm-button">Create</button>
+    <button *ngIf="currentUser !== null" (click)="onLogout()" class="confirm-button">Logout</button>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7 col-md-10">
+      <mat-card class="demo-inline-calendar-card">
+        <mat-calendar [(selected)]="selected" (selectedChange)="getData()" ngSkipHydration></mat-calendar>
+      </mat-card>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <h3 class="text-center">Appointments</h3>
+      <div *ngIf="appointments.length == 0" class="listOfAppointments">
+        <label>No meetings scheduled</label>
+      </div>
+      <div *ngIf="appointments.length>0" class="listOfAppointments">
+        <mat-list class="example-list-wrapping appointment" *ngFor="let appointment of appointments ">
+          <mat-list-item lines="3">
+            <span class="title" matListItemTitle>{{appointment.title}}</span>
+            <span class="subtitle">
+              {{appointment.startTime | date:'shortTime'}} - {{appointment.endTime | date:'shortTime'}} ,
+              {{appointment.location}} , {{appointment.description}}
+            </span>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<ng-template #login let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title title">Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-login (loginSuccess)="onLoginSuccess()"></app-login>
+  </div>
+</ng-template>
+
+<!-- Signup Modal -->
+<ng-template #signup let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title title">Signup</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-signup (signupSuccess)="onSignupSuccess()"></app-signup>
+  </div>
+</ng-template>
+
+<!-- Create Appointment Modal -->
+<ng-template #create let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title title">Create Appointment</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-create-appointment></app-create-appointment>
+  </div>
+</ng-template>

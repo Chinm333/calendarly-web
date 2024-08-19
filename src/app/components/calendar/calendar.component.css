@@ -1,0 +1,52 @@
+/* .demo-inline-calendar-card {
+  width: 300px;
+} */
+.container-fluid {
+  padding: 10px;
+}
+.demo-inline-calendar-card {
+  margin: 10px 0;
+  border-radius: 25px;
+  background: darkseagreen;
+}
+.listOfAppointments {
+  max-height: 80vh;
+  overflow-y: auto;
+  .appointment{
+    background: #d6efd869 !important;
+    border-radius: 14px;
+    margin-bottom: 0.4rem !important;
+    &:hover{
+      cursor: pointer;
+      background-color: #D6EFD8 !important;
+    }
+  }
+}
+h1 {
+  margin: 10px 0;
+  text-align: center;
+}
+
+h3 {
+  white-space: nowrap;
+  color: #000 !important;
+  font-size: 38px !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: normal;
+  display: block;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  color: #000000;
+  padding-bottom: 0.3rem;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 12px;
+  color: #8A8A8A;
+}

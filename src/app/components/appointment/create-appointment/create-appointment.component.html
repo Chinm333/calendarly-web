@@ -1,0 +1,41 @@
+<div class="container">
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="subtitle" for="title">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title" />
+      <div *ngIf="appointmentForm.get('title')?.hasError('required')" class="text-danger">
+        Title is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="subtitle" for="description">Description</label>
+      <textarea class="form-control" id="description" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="subtitle" for="location">Location</label>
+      <input type="text" class="form-control" id="location" formControlName="location" />
+    </div>
+    <div class="form-group">
+      <label class="subtitle" for="startTime">Start Time</label>
+      <input type="datetime-local" class="form-control" id="startTime" formControlName="startTime" />
+      <div *ngIf="appointmentForm.get('startTime')?.hasError('required')" class="text-danger">
+        Start time is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="subtitle" for="endTime">End Time</label>
+      <input type="datetime-local" class="form-control" id="endTime" formControlName="endTime" />
+      <div *ngIf="appointmentForm.get('endTime')?.hasError('required')" class="text-danger">
+        End time is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="subtitle" for="attendees">Attendees</label>
+      <input type="text" class="form-control" id="attendees" formControlName="attendees" placeholder="email@example.com, another@example.com" />
+      <div *ngIf="appointmentForm.get('attendees')?.hasError('required')" class="text-danger">
+        At least one attendee is required
+      </div>
+    </div>
+    <button type="submit" class="confirm-button">Create Appointment</button>
+  </form>
+</div>

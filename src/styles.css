@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button:focus{
+  outline: none !important;
+}
+.confirm-button{
+  border-radius: 6px !important;
+  background: #495094  !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+  padding: 5px 20px !important;
+  border: none !important;
+  height: 40px !important;
+  margin: 0rem 3px 0.5rem 0px !important;
+  &:hover{
+    background-color: #fff !important;
+    color:#495094 !important;
+    border: 1px solid #495094 !important;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  color: #000000;
+  padding-bottom: 0.3rem;
+}
+
+label{
+  white-space: nowrap;
+  color: #000 !important;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: normal;
+  display: block;
+}
+.text-danger{
+  white-space: nowrap;
+  color: #e90b0b !important;
+  font-size: 12px !important;
+  font-style: normal;
+  font-weight: 300 !important;
+  line-height: normal;
+  display: block;
+}
